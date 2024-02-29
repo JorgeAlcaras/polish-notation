@@ -1,36 +1,36 @@
 package com.alcaras;
 
-public class Node {
-    Object data;
-    Node next; // Linea de oro
+public class Node<T> {
+    T data;
+    Node<T> next; // Linea de oro
 
     public Node() {
     }
 
-    public Node(Object data) {
+    public Node(T data) {
         this.data = data;
         this.next = null;
     }
 
-    public Node(Node record) {
+    public Node(Node<T> record) {
         this.data = record.data;
         this.next = null;
     }
 
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 
-    public Node getNext() {
+    public Node<T> getNext() {
         return next;
     }
 
-    public void setNext(Node next) {
+    public void setNext(Node<T> next) {
         this.next = next;
     }
 

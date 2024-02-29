@@ -1,7 +1,7 @@
 package com.alcaras;
 
-public class Stack {
-    private Node top = null;
+public class Stack<T> {
+    private Node<T> top = null;
     private int max = 0;
 
     public Stack(int max) {
@@ -16,21 +16,21 @@ public class Stack {
         return "Stack [top=" + top + "]";
     }
 
-    public void push(Object data) {
-        Node node = new Node(data);
+    public void push(T data) {
+        Node<T> node = new Node<T>(data);
         node.next = top;
         top = node;
     }
 
-    public void push(Node reg) {
-        Node nuevo = new Node(reg);
+    public void push(Node<T> reg) {
+        Node<T> nuevo = new Node<T>(reg);
         nuevo.next = top;
         top = nuevo;
 
     }
 
-    public Node pop() {
-        Node current = null;
+    public Node<T> pop() {
+        Node<T> current = null;
         if (top != null) {
             // if (!isEmpty()) {
             current = top;
@@ -41,7 +41,7 @@ public class Stack {
     }
 
     public void show() {
-        Node current = top;
+        Node<T> current = top;
         while (current != null) {
             System.out.println(current.getData());
             current = current.next;
@@ -50,13 +50,12 @@ public class Stack {
     }
 
     public boolean isEmpty() {
-        boolean answer = top == null;
-        return answer;
+        return top == null;
     }
 
     public int size() {
         int n = 0;
-        Node current = top;
+        Node<T> current = top;
         while (current != null) {
             current = current.next;
             n++;
@@ -66,7 +65,7 @@ public class Stack {
 
     public boolean isExist(String data) {
         boolean answer = false;
-        Node current = top;
+        Node<T> current = top;
         while (current != null) {
             if (current.getData() == data) {
                 answer = true;
@@ -77,7 +76,7 @@ public class Stack {
         return answer;
     }
 
-    public Node peek() {
+    public Node<T> peek() {
         return top;
     }
 
