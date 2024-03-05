@@ -87,6 +87,10 @@ public class PolishNotation {
                 // Precedence of * or / is 2
                 precedence = 2;
                 break;
+            case '^':
+                // Precedence of ^ is 3
+                precedence = 3;
+                break;
             default:
                 break;
         }
@@ -127,6 +131,9 @@ public class PolishNotation {
                         break;
                     case "/":
                         stack.push(new Node<>(operand1 / operand2));
+                        break;
+                    case "^":
+                        stack.push(new Node<>(Math.pow(operand1, operand2)));
                         break;
                     default:
                         // If the token is not a valid operator, throw an exception.
